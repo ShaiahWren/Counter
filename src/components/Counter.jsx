@@ -6,8 +6,7 @@ class Counter extends Component {
         counter: 0,
     };
 
-    _handleSubmit = async (event) => {
-        event.preventDefault();
+    _addButton = () => {
         const { counter } = this.state;
         const newCount = counter+1
         this.setState({
@@ -15,13 +14,15 @@ class Counter extends Component {
         });
     }
 
-    // _handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const { counter } = this.state;
-    //     this.setState({
-    //         counter: this.state - 1,
-    //     });
-    // }
+    _subtractButton = () => {
+        const { counter } = this.state;
+        const newCount = counter-1
+        this.setState({
+            counter: newCount,
+        });
+    }
+
+ 
 
    
 
@@ -33,8 +34,10 @@ class Counter extends Component {
                 <h1>Counter</h1>
                 <form>
                     <label>
-                        <button type="button" onSubmit={this._handleSubmit}>Add</button>
+                        <button type="button" onClick={this._addButton}>Add</button>
                         <p>{counter}</p>
+                        <button type="button" onClick={this._subtractButton}>Subtract</button>
+
                     </label>
                 </form>
 
